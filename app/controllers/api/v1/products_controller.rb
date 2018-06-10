@@ -14,9 +14,8 @@ module Api
         product = Product.new(product_params)
         if product.save
           render status: 201, json: product
-
         else
-          render json: { errors: product.errors }, status: 422
+          render status: 422, json: { errors: product.errors }
         end
       end
 
